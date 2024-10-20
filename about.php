@@ -1,5 +1,25 @@
 <?php
+function get_CURL($url) {
 
+  $curl = curl_init();
+  curl_setopt($curl, CURLOPT_URL, $url);
+  curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+  $result = curl_exec($curl);
+  curl_close($curl); // Ditambahkan tanda kurung yang benar
+  
+ return json_decode($result, true); // Menghapus tanda kurung yang tidak perlu
+}
+
+$result = get_CURL('https://www.googleapis.com/youtube/v3/channels?part=snippet,statistics&id=UCM_XYR_aEfnG-ovmdomcRmQ&key=AIzaSyBchVvyZyeJxqKD6hibgKJpMmm_Ydzp0Ok');
+
+$youtubeProfilePicture = $result['items'][0]['snippet']['thumbnails']['medium']['url'];
+$chennelName = $result['items'][0]['snippet']['title'];
+$subscriber = $result['items'][0]['statistics']['subscriberCount'];
+
+// latest video
+$urlLatestVideo = 'https://www.googleapis.com/youtube/v3/search?key=AIzaSyBchVvyZyeJxqKD6hibgKJpMmm_Ydzp0Ok&channelId=UCM_XYR_aEfnG-ovmdomcRmQ&maxResults=1&order=date&part=snippet';
+$result = get_CURL($urlLatestVideo);
+$urlLatestVideo = $result['items'][0]['id']['videoId']
 
 ?>
 
@@ -83,11 +103,29 @@
       </div>
     </section>
 
-    <section id="IG">
+    <section id="Youtube">
       <div class="container text-center">
         <div class="row">
           <div class="welcome col mt-3">
-            <h1 data-aos="fade-down" data-aos-duration="4000">Follow My <span class="underline">Instagram</span></h1>
+            <h1 data-aos="fade-down" data-aos-duration="4000">Follow My <span class="underline">Youtube</span></h1>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="Youtube">
+      <div class="container" data-aos="fade-up" data-aos-duration="4000">
+        <div class="row justify-content-center ">
+          <div class=" col-md-2 mt-5 float-start">
+            <img  src="<?= $youtubeProfilePicture; ?>" width="150" class="rounded-circle img-thumbnail profile-img">
+
+          </div>
+          <div class="col-md-4 mt-3">
+          <h3><?= $chennelName; ?></h3>
+          <h5 class="text-muted"><?= $subscriber; ?> Subscriber.</h5>
+            <div class="embed-responsive embed-responsive-16by9">
+              <iframe src="https://www.youtube.com/embed/<?= $urlLatestVideo ?>?rel=0" class="embed-responsive-item" allowfullscreen></iframe>
+            </div>
           </div>
         </div>
       </div>
