@@ -1,3 +1,8 @@
+<?php>
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -16,12 +21,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Besley:ital,wght@0,400..900;1,400..900&family=Edu+VIC+WA+NT+Beginner:wght@400..700&family=Roboto+Slab:wght@200&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
-
-    <style>
-      footer {
-        padding-top: 16rem !important;
-      }
-    </style>
   </head>
   <body>
     <!--Navbar-->
@@ -76,8 +75,19 @@
             </p>
           </div>
 
-          <div class="col-md-4">
+          <div class="col-md-4 mb-5">
             <img data-aos="fade-up" data-aos-duration="4000" class="img-about" src="img-blog/bitcoin.jpg" width="400" />
+          </div>
+        </div>
+        <hr />
+      </div>
+    </section>
+
+    <section id="IG">
+      <div class="container text-center">
+        <div class="row">
+          <div class="welcome col mt-3">
+            <h1 data-aos="fade-down" data-aos-duration="4000">Follow My <span class="underline">Instagram</span></h1>
           </div>
         </div>
       </div>
