@@ -35,6 +35,11 @@
   font-family: Besley;
 }
 
+#intruduceAbout {
+  font-size: 18px;
+  font-family: Besley;
+}
+
 .text {
   font-weight: bold;
   letter-spacing: 2px;
@@ -73,6 +78,12 @@ footer {
   padding-top: 8rem;
 }
 
+@media (max-width: 1200px) {
+  .img-about {
+    width: 300px;
+  }
+}
+
 @media (max-width: 990px) {
   #intruduce {
     font-size: 20px;
@@ -96,6 +107,9 @@ footer {
   }
   .offcanvas-end {
     width: 70% !important; /* Untuk navbar  */
+  }
+  .img-about {
+    display: none;
   }
 }
 
