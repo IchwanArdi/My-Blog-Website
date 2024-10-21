@@ -1,0 +1,124 @@
+.nav-link {
+  padding: 0px;
+  font-family: Poppins, sans-serif;
+  color: black;
+  text-align: center;
+  margin-left: 2rem;
+  letter-spacing: 2px;
+  box-sizing: border-box;
+  border-bottom: 1px solid transparent; /* Border transparan untuk mencegah pergeseran */
+  transition: color 0.3s, border-color 0.3s; /* Animasi halus */
+}
+
+.nav-link:hover {
+  color: black;
+  border-bottom: 1px solid black;
+}
+
+.welcome {
+  margin-top: 8rem;
+}
+
+.welcome h1 {
+  color: black;
+  font-weight: bold;
+  font-family: Poppins, sans-serif;
+}
+
+.underline {
+  border-bottom: 3px solid black;
+  padding-bottom: 3px;
+}
+
+#intruduce {
+  font-size: 25px;
+  font-family: Besley;
+}
+
+#intruduceAbout {
+  font-size: 18px;
+  font-family: Besley;
+}
+
+.text {
+  font-weight: bold;
+  letter-spacing: 2px;
+  font-size: 20px;
+}
+
+#blog {
+  margin-top: 10rem;
+  padding-top: 3rem;
+}
+
+.card img {
+  height: 14rem;
+}
+
+#sMedia ul {
+  list-style-type: none;
+  padding-left: 0;
+  display: flex;
+  justify-content: center;
+}
+
+#sMedia .bi {
+  color: black;
+  margin: 0, 20px;
+  padding: 1rem;
+  font-size: 30px;
+  transition: 0.3s;
+}
+
+#sMedia .bi:hover {
+  color: red;
+}
+
+footer {
+  padding-top: 8rem;
+}
+
+@media (max-width: 1200px) {
+  .img-about {
+    width: 300px;
+  }
+}
+
+@media (max-width: 990px) {
+  #intruduce {
+    font-size: 20px;
+  }
+  #blog {
+    margin-top: 5rem;
+  }
+}
+
+/* Medium devices (tablets, 768px and down) */
+@media (max-width: 768px) {
+  .bLogin {
+    display: none; /* Hide the bLogin button on smaller screens */
+  }
+  .welcome {
+    margin-top: 3rem;
+  }
+
+  #blog {
+    margin-top: 3rem;
+  }
+  .offcanvas-end {
+    width: 70% !important; /* Untuk navbar  */
+  }
+  .img-about {
+    display: none;
+  }
+}
+
+/* Small devices (phones, 400px and down) */
+@media (max-width: 400px) {
+  #intruduce {
+    font-size: 17px;
+  }
+  #blog {
+    margin-top: 1rem;
+  }
+}

@@ -1,28 +1,3 @@
-<?php
-function get_CURL($url) {
-
-  $curl = curl_init();
-  curl_setopt($curl, CURLOPT_URL, $url);
-  curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
-  $result = curl_exec($curl);
-  curl_close($curl); // Ditambahkan tanda kurung yang benar
-  
- return json_decode($result, true); // Menghapus tanda kurung yang tidak perlu
-}
-
-$result = get_CURL('https://www.googleapis.com/youtube/v3/channels?part=snippet,statistics&id=UCM_XYR_aEfnG-ovmdomcRmQ&key=AIzaSyBchVvyZyeJxqKD6hibgKJpMmm_Ydzp0Ok');
-
-$youtubeProfilePicture = $result['items'][0]['snippet']['thumbnails']['medium']['url'];
-$chennelName = $result['items'][0]['snippet']['title'];
-$subscriber = $result['items'][0]['statistics']['subscriberCount'];
-
-// latest video
-$urlLatestVideo = 'https://www.googleapis.com/youtube/v3/search?key=AIzaSyBchVvyZyeJxqKD6hibgKJpMmm_Ydzp0Ok&channelId=UCM_XYR_aEfnG-ovmdomcRmQ&maxResults=1&order=date&part=snippet';
-$result = get_CURL($urlLatestVideo);
-$urlLatestVideo = $result['items'][0]['id']['videoId']
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -40,7 +15,7 @@ $urlLatestVideo = $result['items'][0]['id']['videoId']
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Besley:ital,wght@0,400..900;1,400..900&family=Edu+VIC+WA+NT+Beginner:wght@400..700&family=Roboto+Slab:wght@200&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style/style.css" />
   </head>
   <body>
     <!--Navbar-->
@@ -73,7 +48,7 @@ $urlLatestVideo = $result['items'][0]['id']['videoId']
         </div>
       </div>
     </nav>
-    <!--akhir navbar-->
+    <!--End Navbar-->
 
     <section id="about">
       <div class="container text-center">
@@ -89,7 +64,7 @@ $urlLatestVideo = $result['items'][0]['id']['videoId']
       <div class="container">
         <div class="row mt-5">
           <div class="col-md-8">
-            <p data-aos="fade-up" data-aos-duration="4000" id="intruduceAbout" style="text-align: justify">
+            <p data-aos="fade-up" data-aos-duration="4000" id="introduceAbout" style="text-align: justify">
               Selamat datang di blog pribadi saya. Nama saya Ichwan, seorang pemuda berusia 21 tahun yang penuh rasa ingin tahu dan semangat belajar. Blog ini menjadi tempat saya berbagi pengalaman hidup, tantangan, dan impian yang terus
               saya kejar. Setiap tulisan mencerminkan refleksi diri, dunia di sekitar, dan upaya saya untuk memberikan dampak positif. Melalui kata-kata, saya mengekspresikan hal-hal yang sulit diucapkan dan menemukan maknanya di sini.
             </p>
@@ -103,40 +78,28 @@ $urlLatestVideo = $result['items'][0]['id']['videoId']
       </div>
     </section>
 
-    <section id="Youtube">
+    <section id="youtube">
       <div class="container text-center">
         <div class="row">
           <div class="welcome col mt-3">
-            <h1 data-aos="fade-down" data-aos-duration="4000">Follow My <span class="underline">Youtube</span></h1>
+            <h1 data-aos="fade-down" data-aos-duration="4000">Follow My <span class="underline">YouTube</span></h1>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="Youtube">
-      <div class="container" data-aos="fade-up" data-aos-duration="4000">
-        <div class="row justify-content-center ">
-          <div class=" col-md-2 mt-5 float-start">
-            <img  src="<?= $youtubeProfilePicture; ?>" width="150" class="rounded-circle img-thumbnail profile-img">
-
-          </div>
-          <div class="col-md-4 mt-3">
-          <h3><?= $chennelName; ?></h3>
-          <h5 class="text-muted"><?= $subscriber; ?> Subscriber.</h5>
-            <div class="embed-responsive embed-responsive-16by9">
-              <iframe src="https://www.youtube.com/embed/<?= $urlLatestVideo ?>?rel=0" class="embed-responsive-item" allowfullscreen></iframe>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <section id="youtube-details"></section>
 
     <footer class="text-black text-center">
       <hr />
       <p>Created with <i class="bi bi-heart-fill text-danger"></i> by <a class="text-black fw-bold" href="https://www.instagram.com/ichwan_ardi22/">Ichwan Ardianto</a></p>
     </footer>
 
-    <script src="main.js"></script>
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+    <script src="js/main.js"></script>
+    <script src="js/api.js"></script>
 
     <!--AOS-->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
@@ -145,6 +108,7 @@ $urlLatestVideo = $result['items'][0]['id']['videoId']
         once: true,
       });
     </script>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   </body>
 </html>
